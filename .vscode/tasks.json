@@ -1,14 +1,31 @@
 {
         "tasks": [
+                // 自作　一括ダウンロード　個別に落とすときはコマンド手打ち
                 {
                         "type": "shell",
-                        "label": "download code",
-                        "command": "oj-prepare",
+                        "label": "download all",
+                        "command": "acc",
                         "args": [
+                                "new",
                                 "${input:url}",
+                                "-c",
+                                "all"
                         ],
+                        "options": {
+                                "cwd": "${workspaceFolder}"
+                        },
                         "problemMatcher": []
                 },
+                //　うまく機能しないのでaccでダウンロードする。
+                // {
+                //         "type": "shell",
+                //         "label": "download code",
+                //         "command": "oj-prepare",
+                //         "args": [
+                //                 "${input:url}",
+                //         ],
+                //         "problemMatcher": []
+                // },
                 {
                         "type": "cppbuild",
                         "label": "build code",
@@ -71,17 +88,18 @@
                                 "-u",
                                 "${input:user}",
                                 "-p",
-                                "${input:password}",
+                                "${input:password}"
                         ],
                         "problemMatcher": [],
-                        "options": {},
+                        "options": {}
                 },
                 {
                         "type": "shell",
                         "label": "test code",
                         "command": "oj",
                         "args": [
-                                "t"
+                                "t",
+                                "-S"
                         ],
                         "options": {
                                 "cwd": "${fileDirname}"
@@ -100,14 +118,15 @@
                                 "focus": true
                         }
                 },
+                // うまく行かなかったのでaccで提出するよう書き換え
                 {
                         "type": "shell",
                         "label": "submit code",
-                        "command": "oj",
+                        "command": "acc",
                         "args": [
-                                "s",
-                                "-y",
-                                "${fileBasename}"
+                                "s"
+                                // "-y",
+                                // "${fileBasename}"
                         ],
                         "options": {
                                 "cwd": "${fileDirname}"
@@ -119,6 +138,26 @@
                         "dependsOn": [
                                 "test code"
                         ],
+                        "presentation": {
+                                "reveal": "always",
+                                "panel": "shared",
+                                "focus": true
+                        }
+                },
+                // 追加　テストなし提出
+                {
+                        "type": "shell",
+                        "label": "no test submit",
+                        "command": "acc",
+                        "args": [
+                                "s"
+                                // "-y",
+                                // "${fileBasename}"
+                        ],
+                        "options": {
+                                "cwd": "${fileDirname}"
+                        },
+                        "problemMatcher": [],
                         "presentation": {
                                 "reveal": "always",
                                 "panel": "shared",

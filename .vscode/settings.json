@@ -75,6 +75,7 @@
 		"typeinfo": "cpp",
 		"valarray": "cpp",
 		"variant": "cpp",
-		"scc": "cpp"
+		"scc": "cpp",
+		"all": "cpp"
 	}
 }
