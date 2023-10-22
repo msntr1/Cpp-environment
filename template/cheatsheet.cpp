@@ -8,7 +8,7 @@ using namespace atcoder;
 using mint = modint;
 //using mint = modint1000000007;
 //using mint = modint998244353;
-typedef long long ll;
+typedef long long ll; typedef unsigned long long ull;
 #define int ll
 const ll infl = 1LL << 60;
 #define REP(i,n) for (ll i = 0; (i) < (ll)(n); ++ (i))
@@ -16,7 +16,7 @@ const ll infl = 1LL << 60;
 #define REP_R(i,n) for (ll i = (ll)(n) - 1; (i) >= 0; -- (i))
 #define REP3R(i,m,n) for (ll i = (ll)(n) - 1; (i) >= (ll)(m); -- (i))
 #define all(a) (a).begin(), (a).end()
-#define SZ(x) ((int)(x).size())
+#define SZ(x) ((ll)(x).size())
 #define bit(x,i) (((x)>>(i))&1)
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
@@ -257,12 +257,12 @@ vector<pair<long long, long long> > prime_factorize(long long N) {
 
 
 // 8方向の近傍座標指定用定数
-const vector<int> dx{-1, 0, 1, -1, 1, -1, 0, 1};
-const vector<int> dy{-1, -1, -1, 0, 0, 1, 1, 1};
+const vector<ll> dx{-1, 0, 1, -1, 1, -1, 0, 1};
+const vector<ll> dy{-1, -1, -1, 0, 0, 1, 1, 1};
 
 // 4方向の近傍座標指定用定数
-const vector<int> dx{1, 0, -1, 0};
-const vector<int> dy{0, 1, 0, -1};
+const vector<ll> dx{1, 0, -1, 0};
+const vector<ll> dy{0, 1, 0, -1};
 
 // // ループで近傍座標指定
 // REP3(dx, -1, 2) REP3(dy, -1, 2) {

@@ -28,51 +28,6 @@ void random_generate(ll N, vector<ll> &A, vector<ll> &B) {
 ll solve(ll N, vector<ll> A, vector<ll> B) {
   // ここに自分のプログラムを書き、自分の答えを返す。
   // 入力
-  ll Q; cin >> Q;
-  multiset<ll> S;
-  REP (i, Q) {
-    ll n;
-    cin >> n;
-    if (n == 1) {
-      ll x;
-      cin >> x;
-      S.insert(x);
-    }
-    if (n == 2) {
-      ll x, k;
-      bool flag = false;
-      cin >> x >> k;
-      auto it = S.upper_bound(x);
-      REP (j, k) {
-        if (it == S.begin()) {
-          cout << -1 << endl;
-          flag = true;
-          break;
-        }
-        it--;
-      }
-      if (!flag) cout << *it << endl;
-    }
-    if (n == 3) {
-      ll x, k;
-      bool flag = false;
-      cin >> x >> k;
-      auto it = S.lower_bound(x);
-      if (it == S.end()) {
-        cout << -1 << endl;
-        break;
-      }
-      REP (j, k-1) {
-        it++;
-        if (it == S.end()) {
-          cout << -1 << endl;
-          flag = true;
-          break;
-        } 
-      }
-      if (!flag) cout << *it << endl;
-    }
-  }
 }
 
 ll solve_Jury(ll N, vector<ll> A, vector<ll> B) {
